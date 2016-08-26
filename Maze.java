@@ -20,6 +20,9 @@ public class Maze {
     Stack<Cell> stack = new Stack<Cell>();
 
     public Maze(){
+        UI.initialise();
+        UI.setWindowSize(width + 100,height);
+        UI.setDivider(0);
         //Calculates grid size
         cols = Math.round(width / squareSize);
         rows = Math.round(height / squareSize);
@@ -36,13 +39,11 @@ public class Maze {
         while (!allVisited()){
             try{
                 this.drawMaze();
-                Thread.sleep(0);
+                Thread.sleep(1000);
             }catch (InterruptedException e){
                 UI.println(e);
             }
         }
-//        this.drawMaze();
-
         UI.println("Complete");
 
     }
@@ -92,36 +93,11 @@ public class Maze {
 
     //Removes walls of spesified adjacent cells, PROBLEM IS HERE
     public void removeWalls(Cell current, Cell next){
-        int dx = current.col - next.col;
-        int dy = current.row - next.row;
+        int dx = next.col - current.col;
+        int dy = next.row - current.row;
 
-        UI.println(dx);
-
-//        switch (num){
-//            case 0:
-//                if (dx == 0) {
-//                    current.removeLeft();
-//                    next.removeRight();
-//                }
-//
-//                if (dx == -1) {
-//                    current.removeRight();
-//                    next.removeLeft();
-//                }
-//                break;
-//
-//            case 1:
-//                if (dy == 0) {
-//                    current.removeTop();
-//                    next.removeBottom();
-//                }
-//
-//                if (dy == -1) {
-//                    current.removeBottom();
-//                    next.removeTop();
-//                }
-//                break;
-//        }
+        UI.println("DX - " + dx);
+        UI.println("DY - " + dy);
 
 
         //x difference

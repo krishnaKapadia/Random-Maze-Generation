@@ -46,7 +46,6 @@ public class Cell {
 
         //Ensures that the adjacent cells exist and that they are not visited then adds them to the array of neighbours
         if (top != null && !top.visited) neighbours.add(top);
-
         if (bottom != null && !bottom.visited) neighbours.add(bottom);
         if (left != null && !left.visited) neighbours.add(left);
         if (right != null && !right.visited) neighbours.add(right);
