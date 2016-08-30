@@ -17,7 +17,7 @@ public class Maze {
     public static Cell[][] grid;
     Cell current;
 
-    Stack<Cell> stack = new Stack<Cell>();
+    Stack<Cell> stack = new Stack<>();
 
     public Maze(){
         UI.initialise();
@@ -30,6 +30,7 @@ public class Maze {
         //Creates grid of x size
         grid = new Cell[cols][rows];
 
+        //Popuates the grid with cell objects
         this.populate();
 
         //Sets the current cell to initially be the first cell
@@ -39,7 +40,7 @@ public class Maze {
         while (!allVisited()){
             try{
                 this.drawMaze();
-                Thread.sleep(1000);
+                Thread.sleep(0);
             }catch (InterruptedException e){
                 UI.println(e);
             }
