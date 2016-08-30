@@ -91,17 +91,17 @@ public class Maze {
         }
     }
 
-    //Removes walls of spesified adjacent cells, PROBLEM IS HERE
+    //Removes walls of spesified adjacent cells
     public void removeWalls(Cell current, Cell next){
-        int dx = next.col - current.col;
-        int dy = next.row - current.row;
+        int dx = current.col - next.col;
+        int dy = current.row - next.row;
 
         UI.println("DX - " + dx);
         UI.println("DY - " + dy);
 
 
         //x difference
-        if (dx == 0) {
+        if (dx == 1) {
             current.removeLeft();
             next.removeRight();
         }else if (dx == -1) {
@@ -110,7 +110,7 @@ public class Maze {
         }
 
         //y difference
-        if (dy == 0) {
+        if (dy == 1) {
             current.removeTop();
             next.removeBottom();
         }else if (dy == -1) {
